@@ -15,18 +15,18 @@ object count01sTest extends sLaCa3{
 			//mem(0x3100) = 0;				//0000000000000000	Expect 0
 			
 			dot ORIG 0x3000;
-			LDI	R0 "IADDR"; //R0 gets the input value and is shifted left
+			LDI	R0 "IADDR";	//R0 gets the input value and is shifted left
 			LD	R4 "MASK";
 			ADD	R3 R3 I8;
-			ADD	R3 R3 I8; //R3 will count down to zero to stop looping
+			ADD	R3 R3 I8;	//R3 will count down to zero to stop looping
 	"AGAIN"	vvv;
 			ADD	R3 R3 I0;
-			BR 	"END";
-			AND	R1 R0 R4; //R1 gets the value of the mask on top of the input
-			BR 	"FOUND0";
+			BR z	"END";
+			AND	R1 R0 R4;	//R1 gets the value of the mask on top of the input
+			BR z	"FOUND0";
 			ADD	R0 R0 R0;
 			ADD	R3 R3 I_1;
-			BR nz	"AGAIN"	
+			BR nzp	"AGAIN"	
 
 	"FOUND0"vvv;
 			ADD	R0 R0 R0;
@@ -39,7 +39,7 @@ object count01sTest extends sLaCa3{
 			ADD	R2 R2 I1;
 			ADD	R0 R0 R0;
 			ADD	R3 R3 I_1;
-			BR nz	"AGAIN";
+			BR nzp	"AGAIN";
 
 	"END"	vvv;
 			STI	R2 "OADDR";
