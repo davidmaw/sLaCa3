@@ -8,7 +8,7 @@ import scala.collection.mutable.HashMap
  * Electrical Engineering curriculum. More detail of LC3's specifications can be found
  * in Introduction to Computing Systems by Patt and Patel.
  * 
- * Programs written by sLaCa3 have no way of interacting with the system or a console.
+ * Programs written in sLaCa3 have no way of interacting with the system or a console.
  * To observe the execution of the program, the variables mem, regs, and flag must be examined.
  * 
  * sLaCa3 uses Scala's acceptance of method calls without using parentheses or periods
@@ -77,13 +77,13 @@ class sLaCa3 {
 	case class Str(src: Int, base: Int, offset: Int) extends Line
 	case class Trap(vect: Int) extends Line
 	
-	var current = 0;						//describes which line the construction of the program is on.
-	var memLoc = 0;							//holds address in memory the program will go into.
+	var current = 0;				//describes which line the construction of the program is on.
+	var memLoc = 0;					//holds address in memory the program will go into.
 	var prog = new HashMap[Int, Line]		//contains program during runtime so branching can be evaluated
-	var labels = new HashMap[String, Short] //contains the values each label corresponds to.
+	var labels = new HashMap[String, Short		//contains the values each label corresponds to.
 	var mem = new Array[Short](0x10000)		//contains the state of memory
 	var regs = new Array[Short](8)			//contains the state of simulated registers
-	var flag = 0							//contains the value of the branching flag
+	var flag = 0					//contains the value of the branching flag
 	
 	//Debugging and examination method to look at the label assignments
 	def printLabels() = { labels.foreach(println) }
