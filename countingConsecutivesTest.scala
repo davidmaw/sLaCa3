@@ -7,22 +7,23 @@ package sLaCa3
 
 object countingConsecutivesTest extends sLaCa3{
 	def main(args: Array[String]): Unit = {
-			mem(0x3100) = 0x424F;						//0100001001001111	Expect 4
-			//mem(0x3100) = -1;							//1111111111111111	Expect 0
-			//mem(0x3100) = 1;							//0000000000000001	Expect 15
+			//Comment out all but one of these lines to select test input
+			mem(0x3100) = 0x424F;				//0100001001001111	Expect 4
+			//mem(0x3100) = -1;				//1111111111111111	Expect 0
+			//mem(0x3100) = 1;				//0000000000000001	Expect 15
 			//mem(0x3100) = java.lang.Short.MIN_VALUE;	//1000000000000000	Expect 15
-			//mem(0x3100) = 0;							//1000000000000000	Expect 16
+			//mem(0x3100) = 0;				//1000000000000000	Expect 16
 			 
 			 
 			dot ORIG 0x3000;
 		     
-			LD	R0 "INPUT";
+			LDI	R0 "INPUT";
 			ADD	R2 R2 I8;
 			ADD	R2 R2 I8;
 			LD	R5 "MASK";
 	"AGAIN"	 vvv; 
 			ADD	R2 R2 I0;
-			BR	"OVER";
+			BR z	"OVER";
 			AND	R1 R0 R5;
 			BR z	"FOUND0";
 			ADD	R0 R0 R0;
