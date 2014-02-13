@@ -16,7 +16,7 @@ object count01sTest extends sLaCa3{
 			
 			dot ORIG 0x3000;
 			LDI	R0 "IADDR"; //R0 gets the input value and is shifted left
-			L	R4 "MASK";
+			LD	R4 "MASK";
 			ADD	R3 R3 I8;
 			ADD	R3 R3 I8; //R3 will count down to zero to stop looping
 	"AGAIN"	vvv;
