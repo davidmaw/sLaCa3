@@ -80,7 +80,7 @@ class sLaCa3 {
 	var current = 0;				//describes which line the construction of the program is on.
 	var memLoc = 0;					//holds address in memory the program will go into.
 	var prog = new HashMap[Int, Line]		//contains program during runtime so branching can be evaluated
-	var labels = new HashMap[String, Short		//contains the values each label corresponds to.
+	var labels = new HashMap[String, Short]		//contains the values each label corresponds to.
 	var mem = new Array[Short](0x10000)		//contains the state of memory
 	var regs = new Array[Short](8)			//contains the state of simulated registers
 	var flag = 0					//contains the value of the branching flag
